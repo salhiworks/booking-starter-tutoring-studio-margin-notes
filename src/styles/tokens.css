@@ -1,0 +1,320 @@
+/*
+ * Lemma Math Studio — design tokens (Margin Notes).
+ * The ONLY file with raw colours, fonts, sizes and spacing.
+ *
+ * The idea: a well-kept study notebook. Squared paper in daylight, graphite ink, the tutor's violet pen
+ * and one lime highlighter. Three fields carry the page: PAPER (warm, with a faint 24 px grid on the
+ * first screen and the hour), WHITE (sessions & prices, the booking sheet) and two fixed bands —
+ * HIGHLIGHTER LIME ("Where are you stuck?") and VIOLET INK (the booking band, the sheet's header) —
+ * with a graphite NIGHT for the footer. One accent, owner-editable (the tutor's pen), carries the
+ * buttons, the margin rule, the numbers and selected choices.
+ *
+ * Type is a book face: Literata (variable, optical sizes) for headings and figures — upright and
+ * calm, the owner's *emphasised* words in its italics with the highlighter pulled across them.
+ * Lexend for reading (designed to make reading easier), Atkinson Hyperlegible Mono for small labels. The one ornament is the margin: a violet rule left of every
+ * reading section, its number standing in the margin like an equation number.
+ *
+ * Token names are shared with the other Niche Pack starters (so booking.css reads the same
+ * everywhere); the comments say what each one is here.
+ */
+:root {
+  /* ── Colour ─────────────────────────────────────────────── */
+  --paper: #f7f5ef;          /* warm paper — the reading pages */
+  --paper-2: #efede6;        /* a page turned over: quiet panels */
+  --raised: #ffffff;         /* white — sessions, inputs, the booking sheet */
+  --oat: #f1efe8;            /* the booking summary, notes */
+  --oat-deep: #e3e0d6;       /* frames while loading, skeletons */
+  --sage-100: #f0edfb;       /* quiet violet highlights */
+  --sage-200: #e2dcfa;       /* tags, done steps, selection */
+  --rule: #d9d6cc;           /* hairlines (decorative) */
+  --grid: rgb(64 96 160 / 0.085);  /* the squared paper's lines (decorative) */
+  --grid-strong: rgb(64 96 160 / 0.16);
+  --line-input: #5d606b;     /* input and icon-button borders (≥ 3:1 on paper and white) */
+  --line-soft: #a9abb3;      /* borders of choice buttons named by their own text */
+  --mark: #1f7a45;           /* the "open" dot (≥ 3:1) */
+  --ink: #191a1f;            /* graphite ink — 16:1 on paper */
+  --ink-soft: #2d2f37;       /* reading text — 12:1 */
+  --muted: #5d606b;          /* secondary text — 5.7:1 on paper, 6.3:1 on white, 5.3:1 on paper-2 */
+  --clay: #b3261e;           /* errors only (with an icon or words, never colour alone) */
+  --ply: #d8f36a;            /* decorative only */
+  --honey-wash: #f7f5ef;
+  --scrim: rgb(25 26 31 / 0.1);
+  --veil: rgb(22 21 29 / 0.6); /* the page behind the booking sheet */
+  --clay-wash: color-mix(in oklab, var(--clay) 6%, var(--raised));
+  --mark-halo: color-mix(in oklab, var(--mark) 22%, transparent);
+
+  /* The highlighter: a fixed lime (never owner-editable) — behind emphasised words, the "Where are
+     you stuck?" band, the footer's closing square. Ink on it 14:1. */
+  --lime: #d8f36a;
+  --lime-deep: #c3e04a;
+  --on-lime: var(--ink);
+  --on-lime-soft: #3e4049;   /* 8.4:1 on lime */
+  --lime-line: rgb(25 26 31 / 0.22);
+
+  /* Violet ink: the booking band and the sheet's header (fixed, so its contrast is known). */
+  --field: #2e1785;          /* white on it 13.3:1 */
+  --field-deep: #22106a;
+  --field-2: #3a2296;
+  --on-field: #ffffff;
+  --on-field-soft: #ece8fb;  /* 11:1 */
+  --on-field-faint: #c8bff0; /* 7.6:1 — small labels on violet only */
+  --field-line: rgb(255 255 255 / 0.26);
+  --field-line-strong: rgb(255 255 255 / 0.6);
+
+  /* Kept for the shared booking styles. */
+  --birch: var(--lime);
+  --birch-deep: var(--lime-deep);
+  --on-birch: var(--ink);
+  --on-birch-soft: var(--on-lime-soft);
+
+  /* Night: graphite — the footer (never owner-editable). */
+  --night: #16151d;
+  --night-2: #222129;
+  --on-night: #f7f5ef;       /* 17:1 */
+  --on-night-soft: #c9c7d6;  /* 10.9:1 */
+  --on-night-faint: #a3a1b3; /* 7.4:1 */
+  --night-line: rgb(247 245 239 / 0.16);
+
+  /* The booking sheet's header and the shared dark pieces: violet ink (booking.css reads "forest"). */
+  --forest: var(--field);
+  --forest-2: var(--field-2);
+  --forest-3: #4630a8;
+  --on-forest: var(--on-field);
+  --on-forest-soft: var(--on-field-soft);
+  --on-forest-faint: var(--on-field-faint);
+  --forest-line: var(--field-line);
+  --forest-line-strong: var(--field-line-strong);
+  --light: #ffffff;
+
+  /* Owner-editable (brand.accent) — set on <html> at run time: the tutor's pen.
+     A DEEP colour that carries white text (the editor checks any new colour at 4.5:1 against white):
+     buttons on light pages, the margin rule, numbers, selected choices, state edges. */
+  --accent: #4b22c9;         /* violet ink — white on it 8.9:1, as text 8.1:1 on paper, 7.2:1 on lime */
+  --accent-strong: color-mix(in oklab, var(--accent) 86%, #000);
+  --accent-deep: color-mix(in oklab, var(--accent) 66%, #000);
+  --accent-tint: color-mix(in oklab, var(--accent) 12%, var(--raised));
+  --accent-wash: color-mix(in oklab, var(--accent) 6%, var(--raised));
+  --on-accent: #ffffff;
+  --on-accent-soft: #ece8fb;
+  --accent-text: var(--accent);
+  --accent-edge: var(--accent);
+  --accent-line: var(--accent-deep);
+  --focus: var(--ink);
+  /* Emphasised words on violet and night: the highlighter's lime as text (10.7:1 on violet, 14.6:1 on night). */
+  --accent-glow: var(--lime);
+
+  /* Kept for the shared booking styles (the scaffold's ornament tokens). */
+  --sight-color: var(--ink);
+  --sight-w: 2.75rem;
+  --sight-tick: 0.5625rem;
+  --sight-rule: 1px;
+  --staff-height: 2px;
+  --staff: linear-gradient(90deg, var(--accent) 0 100%);
+  --staff-on-dark: var(--staff);
+  --ticks-on-dark: var(--staff);
+  --tick-tall: var(--staff-height);
+  --marker-bar: 0.375rem;
+
+  /* ── Type ───────────────────────────────────────────────── */
+  --font-display: 'Literata Variable', Georgia, 'Times New Roman', serif;
+  --font-text: 'Lexend Variable', 'Helvetica Neue', Arial, sans-serif;
+  --font-sans-display: var(--font-text);
+  /* The page's small labels. The booking sheet's figures (times, codes, prices) read --font-mono and
+     get the reading face: the mono face slashes its zeros. */
+  --font-label: 'Atkinson Hyperlegible Mono Variable', ui-monospace, Menlo, monospace;
+  --font-mono: var(--font-text);
+
+  --text-micro: 0.75rem;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-md: clamp(1rem, 0.97rem + 0.12vw, 1.0625rem);
+  --text-lg: clamp(1.0625rem, 1rem + 0.35vw, 1.3125rem);
+  --text-xl: clamp(1.5rem, 1.3rem + 0.9vw, 2.125rem);
+  --text-2xl: clamp(2rem, 1.5rem + 2vw, 3.25rem);
+  --text-3xl: clamp(2.375rem, 1.5rem + 3.4vw, 4.75rem);    /* section titles */
+  /* The first screen: by width AND by height, so three lines always leave room for the action. */
+  --text-hero: clamp(2.75rem, min(6.6vw, 11.5svh), 7.25rem);
+  --text-mega: clamp(4.5rem, 22vw, 26rem);                  /* the footer name mark */
+  --text-ratio: clamp(7rem, 4rem + 14vw, 19rem);          /* "1:1" behind One to one */
+  --text-numeral: clamp(2.5rem, 2rem + 2vw, 3.75rem);
+  --text-code: clamp(2rem, 1.7rem + 1.2vw, 2.5rem);
+  --text-step: clamp(2rem, 1.7rem + 1vw, 2.625rem);
+  --text-sheet: clamp(1.625rem, 1.45rem + 0.6vw, 2rem);
+  --text-service: clamp(1.625rem, 1.4rem + 0.8vw, 2.125rem);
+  --text-tab: clamp(1.75rem, 1.3rem + 1.4vw, 2.75rem);    /* a session's name on the rail */
+  --text-session: clamp(2.25rem, 1.6rem + 1.9vw, 3.5rem); /* the chosen session's full name */
+  --text-figure: clamp(2.25rem, 1.8rem + 1.6vw, 3.5rem);    /* length and price in the panel */
+  --text-price: clamp(1.625rem, 1.45rem + 0.6vw, 2rem);
+  --text-fact: clamp(1.75rem, 1.5rem + 0.9vw, 2.5rem);
+  --text-point: clamp(1.75rem, 1.45rem + 1vw, 2.5rem);
+  --text-wordmark: 1.625rem;
+  --text-card: clamp(1.375rem, 1.2rem + 0.6vw, 1.75rem);
+  --text-label: 0.75rem;
+
+  --leading-display: 0.98;
+  --leading-heading: 1.04;
+  --leading-body: 1.6;
+  --leading-tight: 1.2;
+
+  --tracking-display: -0.022em;
+  --tracking-eyebrow: 0.08em;
+  --tracking-button: 0.01em;
+  --tracking-code: 0.42em;
+  --tracking-tag: 0.08em;
+  --tracking-wordmark: -0.02em;
+  --tracking-mono: 0.02em;
+  --tracking-label: 0.08em;
+
+  --weight-text: 400;
+  --weight-strong: 650;
+  --weight-medium: 560;
+  --weight-display: 400;     /* headings: light and tall */
+  --weight-light: 330;
+  --weight-sans-display: 600;
+  --weight-squeeze: 420;     /* the emphasised words: loaded heavy */
+  --weight-load-from: 420;   /* where a heavy word starts before it loads */
+
+  /* Literata has no width axis: stretch is always 100 %. */
+  --stretch-display: 100%;
+  --stretch-squeeze: 100%;
+  --stretch-start: 100%;
+  --stretch-label: 100%;
+  --stretch-text: 100%;
+
+  --heading-font: var(--font-display);
+  --heading-weight: var(--weight-display);
+  --heading-stretch: 100%;
+  --heading-tracking: -0.018em;
+  --heading-light-weight: var(--weight-squeeze);
+
+  --measure: 62ch;
+  --measure-lede: 40ch;
+  --measure-title: 16ch;
+
+  /* ── Space ──────────────────────────────────────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8.5rem;
+
+  --gutter: clamp(1rem, 4vw, 3.5rem);
+  /* Vertical rhythm: three section paddings and one heading gap. */
+  --section-pad: clamp(4.5rem, 2rem + 5vw, 8.5rem);
+  --section-pad-feature: clamp(4rem, 2rem + 4.4vw, 7.5rem);
+  --section-pad-compact: clamp(3.5rem, 1.75rem + 3.4vw, 6rem);
+  --head-gap: clamp(2.25rem, 1.25rem + 2.8vw, 4.5rem);
+  --desk-pad: clamp(var(--space-5), 4vw, var(--space-8));
+  /* One centred shell for every section, header and band: words and photographs never drift to the
+     screen's edges on wide monitors — only the rails run edge to edge. */
+  --page-max: 90rem;
+  --header-height: 4.25rem;
+  --header-bar: 4.25rem;
+  --sheet-width: 60rem;
+
+  /* ── Sizes ──────────────────────────────────────────────── */
+  --tap: 2.75rem;
+  --control: 3.25rem;
+  --input: 3rem;
+  --chip: 2.75rem;
+  --day-cell: 2.75rem;
+  --day-card-w: 4rem;
+  --day-card-h: 5.25rem;
+  --dot: 0.3125rem;
+  --drop: 0.75rem;
+  --edge: 3px;
+  --hairline: 1px;
+  --rule-strong: 2px;
+  --focus-width: 2px;
+  --focus-offset: 3px;
+  --logo-height: 1.875rem;
+  --logo-max: 11rem;
+  --summary-width: 17rem;
+  --time-min: 6rem;
+  --label-col: 7rem;
+  --form-max: 34rem;
+  --code-width: 15rem;
+  --code-height: 4rem;
+  --sticky-offset: 6rem;
+  --status-dot: 0.5rem;
+  --skeleton-block: 20rem;
+  --skeleton-times: 9rem;
+
+  /* The margin: its column on wide screens, the rule's weight, the squared paper's step. */
+  --margin-col: clamp(8.5rem, 4rem + 6vw, 12rem);
+  --margin-rule: 1.5px;
+  --grid-step: 24px;
+  --hl-from: 58%;            /* where the highlighter's stroke starts in a line of type */
+  --hl-to: 94%;
+  --pin: 2rem;
+
+  /* ── Shape ──────────────────────────────────────────────── */
+  /* Photographs with barely-there corners, like prints; buttons as rounded pills (a pen cap). */
+  --radius-0: 0;
+  --radius-1: 2px;
+  --radius-2: 4px;
+  --radius-card: 4px;
+  --radius-photo: 3px;
+  --radius-photo-soft: 3px;
+  --radius-button: 999px;
+  --radius-nail: 50%;
+  --radius-pill: 999px;
+  --shadow-soft: 0 -0.5rem 1.5rem var(--scrim);
+  --shadow-top: 0 0.5rem 1.5rem var(--scrim);
+  --shadow-print: 0 1.75rem 3rem -1.75rem rgb(25 26 31 / 0.4);
+  --shadow-sheet: -1.5rem 0 4rem rgb(22 21 29 / 0.25);
+  --shadow-option: 0 0.75rem 1.5rem -0.75rem rgb(25 26 31 / 0.3);
+
+  /* ── Motion ─────────────────────────────────────────────── */
+  --dur-quick: 180ms;
+  --dur-step: 320ms;
+  --dur-enter: 900ms;
+  --dur-photo: 1100ms;
+  --dur-glide: 1400ms;
+  --dur-load: 900ms;         /* the highlighter pulled across a heading's words */
+  --dur-draw: 1200ms;        /* the hour's line drawn left to right */
+  --dur-sheet: 420ms;
+  --stagger: 90ms;
+  --dur-shimmer: 1600ms;
+  --dur-spin: 900ms;
+  --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  /* A pen stroke: quick to start, careful to finish. */
+  --ease-spring: cubic-bezier(0.3, 1.18, 0.5, 1);
+  --ease-stretch: var(--ease-spring);
+  --glide-from: -9%;
+  --rise: 1.25rem;
+  --slide: -1.75rem;
+  --settle-scale: 1.03;
+  --hover-scale: 1.02;
+
+  /* ── Layers ─────────────────────────────────────────────── */
+  --layer-sticky: 5;
+  --layer-banner: 10;
+  --layer-header: 8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-quick: 1ms;
+    --dur-step: 1ms;
+    --dur-enter: 1ms;
+    --dur-photo: 1ms;
+    --dur-glide: 1ms;
+    --dur-load: 1ms;
+    --dur-draw: 1ms;
+    --dur-sheet: 1ms;
+    --stagger: 0ms;
+    --rise: 0px;
+    --slide: 0px;
+    --glide-from: 0%;
+    --settle-scale: 1;
+    --hover-scale: 1;
+    --weight-load-from: var(--weight-squeeze);
+  }
+}
