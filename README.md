@@ -29,7 +29,7 @@ the margin — a violet rule down the left of every section, its number standing
 equation number "(03)".
 
 Booking runs on [`@profitstudio/booking-engine`](https://www.npmjs.com/package/@profitstudio/booking-engine)
-**2.0.0-beta.3** (pinned) with your own Supabase project and Resend for email.
+**2.0.0-beta.4** (pinned) with your own Supabase project and Resend for email.
 
 ## 1. Try it (no accounts needed)
 
@@ -127,5 +127,5 @@ npx booking-engine doctor --dist dist # after a build: also scans the output for
 ## Licence
 
 The code is MIT-licensed — see [`LICENSE`](LICENSE) (Copyright (c) 2026 Youssef Es-salhi).
-Photographs and other third-party assets keep their own terms, listed file by file in
-[`PHOTOS.md`](PHOTOS.md).
+Photographs and other third-party assets keep their own terms, listed in [`ASSETS.md`](ASSETS.md)
+(the photographs file by file in [`PHOTOS.md`](PHOTOS.md)).
