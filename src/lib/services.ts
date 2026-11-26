@@ -2,7 +2,7 @@ import { formatMoney } from '@profitstudio/booking-engine';
 import type { Service } from '@profitstudio/booking-engine';
 
 /**
- * The studio's sessions. The engine (2.0.0-beta.4) has no service categories and no per-service
+ * The studio's sessions. The engine (2.0.0) has no service categories and no per-service
  * metadata, and a service's id is a database UUID this site cannot know when it is built — so
  * everything is read from the service's own engine data:
  *
