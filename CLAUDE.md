@@ -5,7 +5,7 @@ A one-page booking website for an independent tutor who teaches one student at a
 algebra & geometry, precalculus & calculus, statistics, SAT & ACT math prep and study skills — one
 student per session, in person) for the owner to make their own. Its identity lives in
 `src/site.config.ts`; `CUSTOMIZE.md` is the prompt that personalizes it. Built around
-**@profitstudio/booking-engine** **2.0.0** (pinned; lock in `booking-engine.lock.json`). The
+**@profitstudio/booking-engine** **2.0.1** (pinned; lock in `booking-engine.lock.json`). The
 engine owns booking; this project owns the public design.
 
 Read before changing anything:
